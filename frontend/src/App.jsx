@@ -8,7 +8,7 @@ const App = () => {
  
   const getdata = async () => {
     try {
-      const response = await fetch("https://todo-bck.onrender.com");
+      const response = await fetch("http://localhost:5000");
       const result = await response.json();
       if (result.status === 200) {
         setlists(result.data);
@@ -22,7 +22,7 @@ const App = () => {
   
   const postdata = async () => {
     try {
-      const response = await fetch("https://todo-bck.onrender.com", {
+      const response = await fetch("http://localhost:5000", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -40,7 +40,7 @@ const App = () => {
 
   const putdata = async (index) => {
     try {
-      const response = await fetch(`https://todo-bck.onrender.com?index=${index}`, {
+      const response = await fetch(`http://localhost:5000?index=${index}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -60,7 +60,7 @@ const App = () => {
   
   const deletedata = async (index) => {
     try {
-      await fetch(`https://todo-bck.onrender.com/${index}`, {
+      await fetch(`http://localhost:5000/${index}`, {
         method: "DELETE",
       });
       getdata(); 
